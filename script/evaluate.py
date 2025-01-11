@@ -1,0 +1,18 @@
+import speechmetrics
+window_length = None # seconds
+metrics = speechmetrics.load("absolute", window_length)
+scores = metrics("hello.wav")
+print("clean")
+print(scores)
+scores = metrics("hello_fan_mixed.wav")
+print("noise")
+print(scores)
+scores = metrics("hello_fan_mixed_FIR.wav")
+print("fir")
+print(scores)
+scores = metrics("hello_fan_mixed_RNN.wav")
+print("rnn")
+print(scores)
+scores = metrics("hello_fan_mixed_webrtc.wav")
+print("webrtc")
+print(scores)
